@@ -145,10 +145,11 @@ if __name__ == '__main__':
     os.rename(CSV_FILE_NAME + '.csv', CSV_FILE_NAME + '_backup.csv')
     g.save_csv(CSV_FILE_NAME + '.csv')
 
-    http_proxy = SyncHTTPProxy((b'http', b'127.0.0.1', 1080, b''))
+    http_proxy = SyncHTTPProxy((b'http', b'127.0.0.1', 8888, b''))
     proxies = {'http': http_proxy, 'https': http_proxy}
-    translator = Translator(proxies=proxies)
+    #translator = Translator(proxies=proxies)
     # print(translator.translate('hi\r\nsun rise', dest='de').text
+    translator = Translator()
 
     if path.exists("glossary_for_PRemoteM.csv"):
         prm = glossary()
